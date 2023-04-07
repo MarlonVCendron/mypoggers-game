@@ -17,30 +17,6 @@ public class WaterManager : MonoBehaviour
         meshCollider = GetComponent<MeshCollider>();
     }
 
-    // private void Update() {
-    //     Vector3[] vertices = meshFilter.mesh.vertices;
-    //     for (int i = 0; i < vertices.Length; i++) {
-    //         // vertices[i].y = WaveManager.instance.GetWaveHeight(transform.position.x + vertices[i].x, transform.position.z + vertices[i].z);
-            
-    //         Vector3 worldPos = transform.TransformPoint(vertices[i]);
-    //         vertices[i].y = WaveManager.instance.GetWaveHeight(worldPos.x, worldPos.z);
-    //         meshFilter.mesh.vertices = vertices;
-    //         meshFilter.mesh.RecalculateNormals();
-    //     }
-    // }
-
-    // private void Update() {
-    //     Vector3[] vertices = meshFilter.mesh.vertices;
-    //     for (int i = 0; i < vertices.Length; i++) {
-    //         Vector3 worldPos = transform.TransformPoint(vertices[i]);
-    //         Vector3 displacement = WaveManager.instance.GetWaveDisplacement(worldPos.x, worldPos.z, Time.time);
-    //         Vector3 displacedWorldPos = worldPos + displacement;
-    //         vertices[i] = transform.InverseTransformPoint(displacedWorldPos);
-    //     }
-    //     meshFilter.mesh.vertices = vertices;
-    //     meshFilter.mesh.RecalculateNormals();
-    // }
-
     private void Start() {
         mesh = meshFilter.mesh;
         baseVertices = mesh.vertices;

@@ -21,8 +21,7 @@ public class BoatController : MonoBehaviour
 
         if (verticalInput != 0) {
             float speed = verticalInput > 0 ? forwardSpeed : reverseSpeed;
-            // Sim, é estranho usar transform.right. É que a bosta do modelo veio virada de lado e foda-sseeeeeeeeee
-            rb.AddForce(-transform.right * speed * verticalInput, ForceMode.Acceleration);
+            rb.AddForce(transform.forward * speed * verticalInput, ForceMode.Acceleration);
         }
 
         if (Mathf.Abs(horizontalInput) > 0.1f) {
