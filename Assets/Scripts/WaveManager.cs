@@ -6,12 +6,10 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager instance;
 
-    // private float offset = 0f;
-
     [System.Serializable]
     public struct Wave {
         public float amplitude;
-        public float frequency;
+        public float length;
         public float phase;
         public Vector2 direction;
     }
@@ -27,29 +25,13 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    // private void Update() {
-    //     offset += Time.deltaTime;
-    // }
-
-    // public float GetWaveHeight(float x, float z, float time) {
-    //     return GetWaveDisplacement(x, z, time).y;
-    // }
-
-    
-
-    public float GetWaveHeight(float x, float z, float time)
-    {
-        return GetWaveDisplacement(x, z, time).y;
-    }
-
-
     public Vector3 GetWaveDisplacement(float x, float z, float time)
     {
         Vector3 displacement = Vector3.zero;
 
         foreach (Wave wave in waves)
         {
-            float k = 2 * Mathf.PI / wave.frequency;
+            float k = 2 * Mathf.PI / wave.length;
             float dotProduct = Vector2.Dot(new Vector2(x, z), wave.direction.normalized);
             float phase = k * dotProduct + wave.phase + time;
 
@@ -64,16 +46,4 @@ public class WaveManager : MonoBehaviour
         return displacement;
     }
 
-    // public float GetWaveHeight(float x, float z) {
-    //     float waveHeight = 0f;
-
-    //     foreach (Wave wave in waves) {
-    //         float waveX = (x * wave.direction.x + offset) * wave.frequency;
-    //         float waveZ = (z * wave.direction.y + offset) * wave.frequency;
-
-    //         waveHeight += wave.amplitude * Mathf.Sin(waveX + waveZ);
-    //     }
-
-    //     return waveHeight;
-    // }
 }
