@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Floater : MonoBehaviour
 {
-    public WaterManager waterManager;
+    public WaterChunkManager waterChunkManager;
     public Rigidbody rigidBody;
     public float displacementAmount = 3f;
     public int floaterCount = 4;
@@ -14,7 +14,7 @@ public class Floater : MonoBehaviour
     private void FixedUpdate() {
         rigidBody.AddForceAtPosition(Physics.gravity / floaterCount, transform.position, ForceMode.Acceleration);
 
-        float waveHeight = waterManager.GetMeshHeightAtPoint(transform.position.x, transform.position.z);
+        float waveHeight = waterChunkManager.GetMeshHeightAtPoint(transform.position.x, transform.position.z);
         if(transform.position.y < waveHeight) {
             float displacementMultiplier = Mathf.Clamp01(waveHeight - transform.position.y) * displacementAmount;
             rigidBody.AddForceAtPosition(

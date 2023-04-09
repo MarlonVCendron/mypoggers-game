@@ -36,7 +36,7 @@ public class WaterManager : MonoBehaviour
     }
 
     public float GetMeshHeightAtPoint(float x, float z) {
-        float maxHeight = 10f;
+        float maxHeight = 5f;
         Vector3 rayOrigin = new Vector3(x, maxHeight, z);
         Ray ray = new Ray(rayOrigin, Vector3.down);
 
@@ -44,7 +44,7 @@ public class WaterManager : MonoBehaviour
             return hitInfo.point.y;
         } else {
             Debug.LogError("No intersection found with the mesh collider.");
-            return 0f;
+            return 0;
         }
     }
 }

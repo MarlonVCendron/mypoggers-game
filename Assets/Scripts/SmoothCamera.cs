@@ -204,9 +204,9 @@ public class SmoothCamera : MonoBehaviour
         mouseX += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         mouseY -= Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        float horizontalRotationLimit = 110f;
+        // float horizontalRotationLimit = 110f;
         float verticalRotationLimit = 70f;
-        mouseX = Mathf.Clamp(mouseX, -horizontalRotationLimit, horizontalRotationLimit);
+        // mouseX = Mathf.Clamp(mouseX, -horizontalRotationLimit, horizontalRotationLimit);
         mouseY = Mathf.Clamp(mouseY, -verticalRotationLimit, verticalRotationLimit);
 
         targetRotation = Quaternion.Euler(mouseY, mouseX, 0f);
