@@ -15,3 +15,20 @@ Shader "Custom/BoatDepthMask" {
         Pass {}
     }
 }
+
+// Shader "Custom/BoatDepthMask" {
+//     SubShader {
+//         Tags {"Queue" = "Geometry+10" }
+
+//         ColorMask 0
+//         ZWrite On
+
+//         Stencil {
+//             Ref 1
+//             Comp always
+//             Pass replace
+//         }
+
+//         Pass {}
+//     }
+// }

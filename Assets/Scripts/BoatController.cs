@@ -1,34 +1,109 @@
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+
+// public class BoatController : MonoBehaviour
+// {
+//     public float rowForce = 10f;
+//     public float turnTorque = 5f;
+//     public float maxVelocity = 5f;
+//     public float rowCooldown = 1f;
+//     private Rigidbody rb;
+//     private float lastRowTime = -1f;
+
+//     void Start()
+//     {
+//         rb = GetComponent<Rigidbody>();
+//     }
+
+//     void FixedUpdate()
+//     {
+//         if (Time.fixedTime >= lastRowTime + rowCooldown)
+//         {
+//             if (Input.GetKeyDown(KeyCode.A))
+//             {
+//                 Debug.Log("A");
+//                 RowLeft();
+//             }
+//             if (Input.GetKeyDown(KeyCode.D))
+//             {
+//                 Debug.Log("D");
+//                 RowRight();
+//             }
+//         }
+//     }
+
+//     private void RowLeft()
+//     {
+//         Vector3 forwardForce = transform.forward * rowForce;
+//         Vector3 torque = transform.up * turnTorque;
+
+//         ApplyForceAndTorque(forwardForce, torque);
+//         lastRowTime = Time.time;
+//     }
+
+//     private void RowRight()
+//     {
+//         Vector3 forwardForce = transform.forward * rowForce;
+//         Vector3 torque = -transform.up * turnTorque;
+
+//         ApplyForceAndTorque(forwardForce, torque);
+//         lastRowTime = Time.time;
+//     }
+
+//     private void ApplyForceAndTorque(Vector3 forwardForce, Vector3 torque)
+//     {
+//         rb.AddForce(forwardForce);
+//         rb.AddTorque(torque);
+
+//         if (rb.velocity.magnitude > maxVelocity)
+//         {
+//             rb.velocity = rb.velocity.normalized * maxVelocity;
+//         }
+//     }
+// }
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BoatController : MonoBehaviour
 {
-    [SerializeField] private float forwardSpeed = 5f;
-    [SerializeField] private float reverseSpeed = 3f;
-    [SerializeField] private float steeringSpeed = 0.5f;
-    [SerializeField] private float steeringDamping = 2f;
+    public float rowForce = 10f;
+    public float turnForce = 2f;
 
     private Rigidbody rb;
+    private bool rowLeft;
+    private bool rowRight;
 
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    void Update()
     {
-        float verticalInput = Input.GetAxis("Vertical");
-        float horizontalInput = Input.GetAxis("Horizontal");
+        rowLeft = Input.GetKey(KeyCode.A);
+        rowRight = Input.GetKey(KeyCode.D);
+    }
 
-        if (verticalInput != 0) {
-            float speed = verticalInput > 0 ? forwardSpeed : reverseSpeed;
-            rb.AddForce(transform.forward * speed * verticalInput, ForceMode.Acceleration);
+    void FixedUpdate()
+    {
+        if (rowLeft && rowRight)
+        {
+            // Row both sides, moving the boat forward
+            rb.AddForce(transform.forward * rowForce, ForceMode.Acceleration);
         }
-
-        if (Mathf.Abs(horizontalInput) > 0.1f) {
-            rb.AddTorque(0, horizontalInput * steeringSpeed, 0);
-        } else {
-            float currentAngularVelocityY = rb.angularVelocity.y;
-            rb.AddTorque(0, -currentAngularVelocityY * steeringDamping, 0);
+        else if (rowLeft)
+        {
+            // Row only the left side, turning the boat right
+            rb.AddForceAtPosition(transform.forward * rowForce, transform.position + transform.right, ForceMode.Acceleration);
+            rb.AddTorque(0f, turnForce, 0f, ForceMode.Acceleration);
+        }
+        else if (rowRight)
+        {
+            // Row only the right side, turning the boat left
+            rb.AddForceAtPosition(transform.forward * rowForce, transform.position - transform.right, ForceMode.Acceleration);
+            rb.AddTorque(0f, -turnForce, 0f, ForceMode.Acceleration);
         }
     }
 }
