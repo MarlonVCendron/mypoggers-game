@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class TittleScreen : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class TittleScreen : MonoBehaviour
     }
 
     public void QuitGame(){
-        Application.Quit();
+        bool playOutput = EditorUtility.DisplayDialog("Sair do jogo", "Você tem certeza que quer sair do jogo?", "Sim", "Não");
+        if (playOutput){
+            Application.Quit();
+        }
     }
 }
