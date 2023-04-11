@@ -9,6 +9,7 @@ public class WaterChunkManager : MonoBehaviour
     public Camera mainCamera;
     public int waterSize = 10;
     public int gridSize = 16;
+    public bool isStatic = false;
 
     private GameObject[,] waterGrid;
     private Vector2Int currentPlayerGridPosition;
@@ -18,11 +19,11 @@ public class WaterChunkManager : MonoBehaviour
         waterGrid = new GameObject[gridSize, gridSize];
         currentPlayerGridPosition = new Vector2Int(-1, -1); // Initialize to an invalid position
         SpawnWaters();
-        UpdateActiveWaters();
+        if(!isStatic) UpdateActiveWaters();
     }
 
     private void Update() {
-        UpdateActiveWaters();
+        if(!isStatic) UpdateActiveWaters();
     }
 
     private void SpawnWaters() {
@@ -30,7 +31,7 @@ public class WaterChunkManager : MonoBehaviour
             for (int z = 0; z < gridSize; z++) {
                 Vector3 waterPosition = new Vector3(x * waterSize, 0, z * waterSize);
                 GameObject newWater = Instantiate(waterPrefab, waterPosition, Quaternion.identity, transform);
-                newWater.SetActive(false);
+                newWater.SetActive(isStatic);
                 waterGrid[x, z] = newWater;
             }
         }
@@ -43,17 +44,6 @@ public class WaterChunkManager : MonoBehaviour
 
         if (currentPlayerGridPosition.x != gridX || currentPlayerGridPosition.y != gridZ) {
             currentPlayerGridPosition = new Vector2Int(gridX, gridZ);
-
-            // for (int i = 0; i < boat.transform.childCount; i++) {
-            //     GameObject child = boat.transform.GetChild(i).gameObject;
-            //     Floater floater = child.GetComponent<Floater>();
-            //     if (floater != null) {
-            //         int floaterGridX = Mathf.RoundToInt(floater.transform.position.x / waterSize);
-            //         int floaterGridZ = Mathf.RoundToInt(floater.transform.position.z / waterSize);
-            //         floater.waterManager = waterGrid[floaterGridX, floaterGridZ].GetComponent<WaterManager>();
-            //     }
-            // }
-            
             UpdateWaterGridActivationPosition();
         }
         UpdateWaterGridActivationCamera();
