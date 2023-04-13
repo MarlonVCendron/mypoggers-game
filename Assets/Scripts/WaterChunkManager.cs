@@ -29,7 +29,7 @@ public class WaterChunkManager : MonoBehaviour
     private void SpawnWaters() {
         for (int x = 0; x < gridSize; x++) {
             for (int z = 0; z < gridSize; z++) {
-                Vector3 waterPosition = new Vector3(x * waterSize, 0, z * waterSize);
+                Vector3 waterPosition = new Vector3(x * waterSize, transform.position.y, z * waterSize);
                 GameObject newWater = Instantiate(waterPrefab, waterPosition, Quaternion.identity, transform);
                 newWater.SetActive(isStatic);
                 waterGrid[x, z] = newWater;
