@@ -31,7 +31,6 @@ public class FillingWater : MonoBehaviour
     }
 
     public void RemoveBucketful() {
-        Debug.Log("aaaaaaaaaaaaaaaaaa");
         Vector3 newPosition = transform.localPosition;
         newPosition.y -= bucketSize;
 
