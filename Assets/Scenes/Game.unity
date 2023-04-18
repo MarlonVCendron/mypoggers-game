@@ -1147,9 +1147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2c9a4f496b5e63c9eeef164beae450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bucketController: {fileID: 1830444446}
   thrustForce: 230
   maxThrustTime: 1
   recoveryTime: 2
+  stamina: 100
 --- !u!54 &1141539849
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12312,6 +12314,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
+  heldBucket: {fileID: 0}
 --- !u!135 &1830444447
 SphereCollider:
   m_ObjectHideFlags: 0

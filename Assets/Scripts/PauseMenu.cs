@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         bool playOutput = EditorUtility.DisplayDialog("Voltar ao título", "Você tem certeza que quer voltar para a tela de título", "Sim", "Não");
         if (playOutput){
-            SceneManager.LoadScene ("Menu");
+            SceneManager.LoadScene("Menu");
         }
         isPaused = false;
     }

@@ -13,7 +13,7 @@ public class BucketController : MonoBehaviour
     public float holdDistance = 3.5f;
     public LayerMask layerMask;
 
-    private GameObject heldBucket;
+    public GameObject heldBucket;
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {

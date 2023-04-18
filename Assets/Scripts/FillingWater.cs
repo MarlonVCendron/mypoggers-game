@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class FillingWater : MonoBehaviour
 {
     public float fillSpeed = 0.0008f;
-    public float bucketSize = 0.025f;
+    public float bucketSize = 0.015f;
 
-    private float maxY = -0.016f;
+    private float maxY = -0.006f;
     private float minY = -0.27f;
     private bool isFilling = true;
 
@@ -24,7 +23,7 @@ public class FillingWater : MonoBehaviour
         if (newPosition.y >= maxY) {
             newPosition.y = maxY;
             isFilling = false;
-            Debug.Log("encheu");
+            SceneManager.LoadScene("GameOver");
         }
 
         transform.localPosition = newPosition;
