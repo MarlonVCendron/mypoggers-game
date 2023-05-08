@@ -6,14 +6,18 @@ using UnityEditor;
 
 public class TittleScreen : MonoBehaviour
 {
+    public ConfirmationDialog confirmationDialog;
+
     public void StartGame(){
         SceneManager.LoadScene("Game");
     }
 
     public void QuitGame(){
-        bool playOutput = EditorUtility.DisplayDialog("Sair do jogo", "Você tem certeza que quer sair do jogo?", "Sim", "Não");
-        if (playOutput){
-            Application.Quit();
-        }
+        confirmationDialog.Show("Sair do jogo", "Voce tem certeza que quer sair do jogo?",
+            () => {
+                Application.Quit();
+            },
+            () => {}
+        );
     }
 }

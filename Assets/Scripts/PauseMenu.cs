@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     public AudioSource ambientSound;
     public AudioSource rainSound;
     public AudioSource bichoSound;
+    public ConfirmationDialog confirmationDialog;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,17 +52,22 @@ public class PauseMenu : MonoBehaviour
         bichoSound.Play();
     }
     public void GoToMainMenu(){
-        Time.timeScale = 1f;
-        bool playOutput = EditorUtility.DisplayDialog("Voltar ao título", "Você tem certeza que quer voltar para a tela de título", "Sim", "Não");
-        if (playOutput){
-            SceneManager.LoadScene("Menu");
-        }
-        isPaused = false;
+        confirmationDialog.Show("Voltar ao titulo", "Voce tem certeza que quer voltar para a tela de titulo?",
+            () => {
+                SceneManager.LoadScene("Menu");
+                isPaused = false;
+            },
+            () => {
+                isPaused = false;
+            }
+        );
     }
     public void QuitGame(){
-        bool playOutput = EditorUtility.DisplayDialog("Sair do jogo", "Você tem certeza que quer sair do jogo?", "Sim", "Não");
-        if (playOutput){
-            Application.Quit();
-        }
+        confirmationDialog.Show("Sair do jogo", "Voce tem certeza que quer sair do jogo?",
+            () => {
+                Application.Quit();
+            },
+            () => {}
+        );
     }
 }
