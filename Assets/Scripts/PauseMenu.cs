@@ -8,6 +8,9 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public static bool isPaused;
+    public AudioSource ambientSound;
+    public AudioSource rainSound;
+    public AudioSource bichoSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,9 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        ambientSound.Pause();
+        rainSound.Pause();
+        bichoSound.Pause();
     }
     public void ResumeGame(){
         pauseMenu.SetActive(false);
@@ -39,6 +45,9 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        ambientSound.Play();
+        rainSound.Play();
+        bichoSound.Play();
     }
     public void GoToMainMenu(){
         Time.timeScale = 1f;

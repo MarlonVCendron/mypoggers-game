@@ -80,7 +80,7 @@ public class BoatController : MonoBehaviour {
 
         RectTransform rectTransform = staminaBarFill.GetComponent<RectTransform>();
         Vector2 newSizeDelta = rectTransform.sizeDelta;
-        newSizeDelta.x = staminaPercentage * rectTransform.parent.GetComponent<RectTransform>().sizeDelta.x;
+        newSizeDelta.y = staminaPercentage * rectTransform.parent.GetComponent<RectTransform>().sizeDelta.y;
         rectTransform.sizeDelta = newSizeDelta;
     }
 

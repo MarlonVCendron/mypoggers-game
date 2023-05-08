@@ -6,7 +6,7 @@ public class FillingWater : MonoBehaviour
     public float fillSpeed = 0.0008f;
     public float bucketSize = 0.015f;
 
-    private float maxY = -0.006f;
+    private float maxY = -0.036f;
     private float minY = -0.27f;
     private bool isFilling = true;
 
@@ -23,6 +23,8 @@ public class FillingWater : MonoBehaviour
         if (newPosition.y >= maxY) {
             newPosition.y = maxY;
             isFilling = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("GameOver");
         }
 
