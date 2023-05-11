@@ -1379,6 +1379,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1527441933}
     m_Modifications:
+    - target: {fileID: 6690626754217328034, guid: 07928815d6cf859a88345979f500af43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690626754267201393, guid: 07928815d6cf859a88345979f500af43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690626754267201393, guid: 07928815d6cf859a88345979f500af43, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6690626755240651700, guid: 07928815d6cf859a88345979f500af43, type: 3}
       propertyPath: messageText
       value: 
@@ -1473,6 +1485,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6690626755240651702, guid: 07928815d6cf859a88345979f500af43, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690626755365187247, guid: 07928815d6cf859a88345979f500af43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690626755365187247, guid: 07928815d6cf859a88345979f500af43, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -70,3 +70,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+/Lurking Water_v1_Data/
+/Lurking Water_v1_BurstDebugInformation_DoNotShip/
+/Lurking Water_Data/
+/Lurking Water_BurstDebugInformation_DoNotShip/
