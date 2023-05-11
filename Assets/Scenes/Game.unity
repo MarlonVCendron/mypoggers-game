@@ -1427,7 +1427,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: d1110fbfb72d4d1418eea162b923c33b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 297e66d70b31fa841bf9f379b71dee90, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 747a8088ed36967aabff7952125cf9ed, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -12840,7 +12840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1586825282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12990,7 +12990,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
+  far clip plane: 500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -13244,12 +13244,6 @@ MonoBehaviour:
   - {x: -200, y: -130, z: 150}
   - {x: -200, y: -130, z: 90}
   times:
-  - 20
-  - 30
-  - 25
-  - 15
-  - 15
-  - 10
   - 5
   audioClips:
   - {fileID: 8300000, guid: 0b4bc5e50091826e0a3f353c5daf34d9, type: 3}
@@ -13989,6 +13983,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 57239672}
+    - target: {fileID: 6690626754217328034, guid: 07928815d6cf859a88345979f500af43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690626754267201393, guid: 07928815d6cf859a88345979f500af43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690626754267201393, guid: 07928815d6cf859a88345979f500af43, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6690626754663316748, guid: 07928815d6cf859a88345979f500af43, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14080,6 +14086,14 @@ PrefabInstance:
     - target: {fileID: 6690626755240651702, guid: 07928815d6cf859a88345979f500af43, type: 3}
       propertyPath: m_Name
       value: ConfirmationDialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690626755365187247, guid: 07928815d6cf859a88345979f500af43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690626755365187247, guid: 07928815d6cf859a88345979f500af43, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07928815d6cf859a88345979f500af43, type: 3}
